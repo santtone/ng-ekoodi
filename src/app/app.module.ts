@@ -8,12 +8,27 @@ import {UserInfoComponent} from './user/user-info/user-info.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatIconModule, MatInputModule, MatLineModule, MatListModule} from '@angular/material';
 import {UserService} from './user/user.service';
+import {RouterModule, Routes} from '@angular/router';
+import {AddUserComponent} from './user/add-user/add-user.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+
+const routes: Routes = [
+  {
+    path: 'add-user',
+    component: AddUserComponent
+  },
+  {
+    path: 'users',
+    component: UserListComponent
+  }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +38,9 @@ import {UserService} from './user/user.service';
     MatInputModule,
     MatIconModule,
     MatListModule,
-    MatLineModule
+    MatLineModule,
+    RouterModule.forRoot(routes),
+    FlexLayoutModule
   ],
   providers: [
     UserService
